@@ -1,5 +1,7 @@
 # 백엔드 면접 질문, 직접 돌려보고 답하기
 
+![백엔드 면접 질문을 측정한 숫자로 답하는 backend-interview-lab](assets/cover.png)
+
 > **Backend interview questions answered with runnable experiments.**  
 > 외운 답 대신 **직접 실행하고 측정한 숫자**로 답하는 백엔드 기술 면접 정리입니다.
 

@@ -18,6 +18,8 @@ SELECT id, amount FROM orders WHERE status = 'PAID';  -- 30만 건 중 90%
 
 ## 직접 측정한 근거
 
+![user_id 조회는 인덱스로 887배 빨라지고, status=PAID 조회는 0.9배로 오히려 느려진 비교 그래프](../assets/db-02-index.png)
+
 주문 30만 건, 사용자 3만 명, 상태 PAID 90% / CANCELLED 10%. SQLite in-memory.
 
 | 케이스 | 반환 행 | 인덱스 없음 (ms) | 인덱스 있음 (ms) | 배율 |

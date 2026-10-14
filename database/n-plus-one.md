@@ -19,6 +19,8 @@ for post in posts:
 
 ## 직접 측정한 근거
 
+![N+1 501번 321.82ms, JOIN 1번 1.68ms, IN 일괄 조회 2번 2.08ms 비교 막대 그래프](../assets/db-01-n-plus-one.png)
+
 게시글 500개, 게시글당 댓글 5개. SQLite in-memory, 쿼리마다 0.5ms 왕복을 가정.
 
 | 방식 | 쿼리 수 | in-memory (ms) | 왕복 0.5ms 가정 (ms) |
