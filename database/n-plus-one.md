@@ -53,4 +53,4 @@ DB마다 파라미터 수나 쿼리 길이에 상한이 있습니다. 실제로�
 ## 참고
 
 - [MyBatis: Nested Select for Association](https://mybatis.org/mybatis-3/sqlmap-xml.html#Nested_Select_for_Association)
-- 블로그 글: [N+1 쿼리는 왜 생길까?](https://velog.io/@morningverse/N1-쿼리는-왜-생길까)
+- 블로그 글: [MyBatis N+1 문제 해결, 로그 확인부터 일대다 페이징까지](https://velog.io/@morningverse/N1-쿼리는-왜-생길까)

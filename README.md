@@ -7,7 +7,7 @@
 
 "N+1이 뭔가요?", "인덱스는 왜 빠른가요?" 같은 백엔드 면접 단골 질문을
 **30초 답변 → 직접 측정한 근거 → 꼬리 질문 → 흔한 오답** 순서로 정리합니다.
-모든 수치는 [backend-lab](https://github.com/morningverse67-wq/backend-lab)의 코드로 누구나 다시 재현할 수 있습니다.
+모든 수치는 [backend-lab](https://github.com/morningverse67-wq/backend-lab)의 코드로 직접 다시 돌려 볼 수 있습니다(값은 환경에 따라 다름).
 
 ## 이 저장소가 다른 점
 
@@ -27,7 +27,7 @@
 | DB-01 | [N+1 문제란 무엇이고 어떻게 해결하나요?](database/n-plus-one.md) | ✅ | 쿼리 501번 321ms → 1번 1.7ms |
 | DB-02 | [인덱스는 왜 빠르고, 언제 소용없나요?](database/index.md) | ✅ | 선택적 조회 887배, 90% 조회 0.9배 |
 | DB-03 | [복합 인덱스의 컬럼 순서는 왜 중요한가요?](database/composite-index.md) | ✅ | 같은 두 컬럼, 순서만 바꿔 505배 차이 (0.08ms vs 42.07ms) |
-| DB-04 | [OFFSET 페이징은 왜 느려지고, 커서 페이징은 언제 쓰나요?](database/offset-vs-keyset-paging.md) | ✅ | 10,000페이지에서 OFFSET 187.96ms vs 커서 0.77ms (244.7배) |
+| DB-04 | [OFFSET 페이징은 왜 느려지고, 커서 페이징은 언제 쓰나요?](database/offset-vs-keyset-paging.md) | ✅ | 10,000페이지 100회 조회 합계 OFFSET 187.96ms vs 커서 0.77ms (244.7배) |
 | DB-05 | 인덱스를 못 타는 쿼리에는 어떤 것이 있나요? | 🔜 | |
 | DB-06 | 커버링 인덱스란 무엇인가요? | 🔜 | |
 | DB-07 | 대량 INSERT를 빠르게 하는 방법은? | 🔜 | |
