@@ -74,3 +74,4 @@ LIMIT 20;
 - [MySQL 8.0: LIMIT Query Optimization](https://dev.mysql.com/doc/refman/8.0/en/limit-optimization.html)
 - [SQLite: Row Values (Scrolling Window Queries)](https://www.sqlite.org/rowvalue.html)
 - [SQLite: EXPLAIN QUERY PLAN](https://www.sqlite.org/eqp.html)
+- 블로그 글: [OFFSET 페이징은 왜 뒤로 갈수록 느려질까](https://velog.io/@morningverse/OFFSET-페이징은-왜-뒤로-갈수록-느려질까)
