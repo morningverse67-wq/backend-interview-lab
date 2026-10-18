@@ -30,7 +30,7 @@
 | DB-04 | [OFFSET 페이징은 왜 느려지고, 커서 페이징은 언제 쓰나요?](database/offset-vs-keyset-paging.md) | ✅ | 10,000페이지 100회 조회 합계 OFFSET 187.96ms vs 커서 0.77ms (244.7배) |
 | DB-05 | [인덱스를 못 타는 쿼리에는 어떤 것이 있나요?](database/non-sargable-queries.md) | ✅ | 인덱스는 그대로, WHERE만 고쳐서 날짜 함수 41.3배, `LIKE '%-1234'` 876.4배 (100회 조회 합계) |
 | DB-06 | [커버링 인덱스란 무엇인가요?](database/covering-index.md) | ✅ | 테이블을 안 읽으니 한 달 합계 10회 82.20ms → 4.95ms (16.6배), 인덱스 밖 컬럼 조회 시 1.0배 |
-| DB-07 | 대량 INSERT를 빠르게 하는 방법은? | 🔜 | |
+| DB-07 | [대량 INSERT를 빠르게 하는 방법은?](database/bulk-insert.md) | ✅ | 1만 건을 매번 COMMIT 1,948.84ms → 트랜잭션 하나 8.08ms (241.2배), 대신 1건 실패에 0건 남음 |
 
 ### 트랜잭션 · 동시성
 
