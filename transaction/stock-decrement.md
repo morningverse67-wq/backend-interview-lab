@@ -72,3 +72,4 @@ SQLite 파일 DB(WAL), 8스레드가 같은 상품을 1개씩 주문. 주문마�
 - [MySQL 8.4: UPDATE Statement](https://dev.mysql.com/doc/refman/8.4/en/update.html)
 - [MySQL 8.4: CHECK Constraints](https://dev.mysql.com/doc/refman/8.4/en/create-table-check-constraints.html)
 - [SQLite: UPDATE](https://www.sqlite.org/lang_update.html)
+- 블로그 글: [재고 차감 동시성 문제, 원자적 UPDATE 한 줄이면 될까](https://velog.io/@morningverse/재고-차감-동시성-문제-원자적-UPDATE-한-줄이면-될까)
