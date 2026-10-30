@@ -57,7 +57,7 @@
 
 | # | 질문 | 상태 | 핵심 근거 |
 |---|---|:---:|---|
-| API-01 | Rate limiter 알고리즘별 차이는? | 🔜 | |
+| API-01 | [Rate limiter 알고리즘별 차이는?](api/rate-limiter.md) | ✅ | 경계 요청 10개: fixed window 허용 10개, exact log·token bucket 5개. 800ms 재충전 burst에서 token bucket은 9개 허용 |
 | API-02 | 재시도할 때 지수 백오프와 jitter를 쓰는 이유는? | 🔜 | |
 | API-03 | Circuit breaker는 어떻게 동작하나요? | 🔜 | |
 | API-04 | 커넥션 풀 크기는 어떻게 정하나요? | 🔜 | |
