@@ -61,7 +61,8 @@
 | API-02 | [재시도할 때 지수 백오프와 jitter를 쓰는 이유는?](api/retry-backoff-jitter.md) | ✅ | 1초 장애 뒤 클라이언트 100개: 지수 백오프만 쓰면 복구 후 거절 450번·마지막 성공 28,700ms, full jitter면 9번·4,048ms |
 | API-03 | [Circuit breaker는 어떻게 동작하나요?](api/circuit-breaker.md) | ✅ | 초당 100개 요청, 1초 타임아웃: 장애 중 타임아웃 호출 breaker 없음 550번 → 109~118번. 대신 복구 후 거절 OPEN 500ms 75개, 5000ms 330개 |
 | API-04 | [커넥션 풀 크기는 어떻게 정하나요?](api/connection-pool-size.md) | ✅ | 4코어 DB, 초당 800개: 풀 2개 포기 2,478개, 4개부터 0개. 풀 64개는 p99 25.80 → 40.86ms로 대기 장소만 이동. 커넥션을 20ms 더 쥐면 16개도 805개 포기 |
-| API-05 | 외부 API 호출에 타임아웃이 꼭 필요한 이유는? | 🔜 | |
+| API-05 | [I/O 작업은 동기, 스레드 풀, asyncio 중 무엇으로 처리하나요?](api/sync-threadpool-asyncio.md) | ✅ | 50ms 서버에 호출 100번: 순차 5,281.5ms, 스레드 100개 60.5ms, gather 65.3ms. `async def` 안 블로킹 호출은 5,254.4ms. CPU 반복문을 붙이면 스레드 100개도 579.2ms(CPU 합 592.5ms) |
+| API-06 | 외부 API 호출에 타임아웃이 꼭 필요한 이유는? | 🔜 | |
 
 ## 답변 형식
 
