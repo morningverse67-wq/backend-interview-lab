@@ -79,6 +79,7 @@
 | DP-09 | [없으면 넣고 있으면 고치는 작업은 어떻게 처리하나요?](database/upsert.md) | ✅ | 같은 새 키에 동시 요청 1,000쌍: 조회 후 쓰기는 중복 키 오류 1,000번·증가분 1,000 사라짐, ON CONFLICT는 0이고 10만 건 98ms 대 45ms |
 | DP-10 | [삭제한 데이터를 남겨 두면 유니크 제약은 어떻게 거나요?](database/soft-delete-partial-index.md) | ✅ | 10만 행 중 9만 행 삭제: 전체 UNIQUE는 탈퇴 이메일 재가입 1,000번 모두 오류·757페이지, 부분 UNIQUE는 재가입 오류 0·중복 1,000번 모두 막고 74페이지 |
 | DP-11 | [최신순 목록 API가 느릴 때 인덱스는 어떻게 거나요?](database/order-by-limit-index.md) | ✅ | 주문 20만 행, 회원 한 명의 최근 20건: `INDEX(user_id)`는 임시 정렬·8,295단계·192.8ms, `INDEX(user_id, created_at)`는 정렬 없음·133단계·4.5ms |
+| DP-12 | [오래 열린 트랜잭션이 왜 문제인가요?](database/long-transaction-cleanup.md) | ✅ | 1만 행에 1,000건씩 20번 UPDATE: 긴 읽기 없음은 WAL 0 MB, 긴 읽기를 열어 두면 정리 20/20 막힘·WAL 17.65 MB, 닫으면 0 MB |
 
 ## 답변 형식
 
