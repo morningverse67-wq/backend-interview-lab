@@ -81,6 +81,7 @@
 | DP-11 | [최신순 목록 API가 느릴 때 인덱스는 어떻게 거나요?](database/order-by-limit-index.md) | ✅ | 주문 20만 행, 회원 한 명의 최근 20건: `INDEX(user_id)`는 임시 정렬·8,295단계·192.8ms, `INDEX(user_id, created_at)`는 정렬 없음·133단계·4.5ms |
 | DP-12 | [오래 열린 트랜잭션이 왜 문제인가요?](database/long-transaction-cleanup.md) | ✅ | 1만 행에 1,000건씩 20번 UPDATE: 긴 읽기 없음은 WAL 0 MB, 긴 읽기를 열어 두면 정리 20/20 막힘·WAL 17.65 MB, 닫으면 0 MB |
 | DP-13 | [대량으로 DELETE했는데 디스크가 그대로예요. 왜 그런가요?](database/bulk-delete-disk-space.md) | ✅ | 로그 20만 행 중 18만 행 DELETE: 파일 27.70 MB 그대로·빈 페이지 6,373개, `VACUUM` 뒤 2.77 MB |
+| DP-14 | [분산 락에 임대 시간을 두면 안전한가요?](transaction/distributed-lock-fencing-token.md) | ✅ | 임대 30 ms 락으로 1만 번 증가: 임대 락만 9,756(244 잃음), fencing token 확인 시 늦은 쓰기 216건 거절·재시도로 10,000 |
 
 ## 답변 형식
 
