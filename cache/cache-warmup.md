@@ -18,7 +18,7 @@
 | 인기 키 500개 미리 채움 | 83.3% | 1,674 | 15,919 |
 | 인기 키 2,000개 미리 채움 | 84.0% | 1,596 | 17,341 |
 
-- 재현 코드: [backend-lab/043-cache-warmup](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/043-cache-warmup)
+- 재현 코드: [backend-proof/043-cache-warmup](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/043-cache-warmup)
 
 <sub>Python 3.13.12, macOS arm64, 시드 42 시뮬레이션. 여러 번 돌려도 숫자가 같았습니다.</sub>
 

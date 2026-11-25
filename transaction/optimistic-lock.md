@@ -35,7 +35,7 @@ SQLite 파일 DB(WAL), 8스레드 x 200번 = `+1` 요청 1,600번. 요청마다 
 
 - 충돌이 드물면(1,000행에 흩어짐) 낙관적 락은 재시도 10번, 시간 1.03배로 거의 비용이 없었습니다. 그래도 락이 없을 때는 10건이 사라졌습니다.
 - 한 행에 몰리면 요청 1건당 평균 3.7번 재시도했고, 재시도를 3번으로 제한했다면 270건(16.9%)이 실패로 끝났을 것입니다.
-- 재현 코드: [backend-lab/010-lost-update-optimistic-lock](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/010-lost-update-optimistic-lock)
+- 재현 코드: [backend-proof/010-lost-update-optimistic-lock](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/010-lost-update-optimistic-lock)
 
 <sub>Python 3.13 / SQLite 3.50, 파일 DB(WAL, synchronous=NORMAL), 3회 실행의 지표별 중앙값. 스레드 실행 순서에 따라 매번 조금씩 달라지고, 환경에 따라 수치는 달라질 수 있음.</sub>
 

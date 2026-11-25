@@ -18,7 +18,7 @@
 | 로컬 TTL 1초 + 분산 | 61.5% | 0.506 | 17,488 (17.85%) |
 | 로컬 TTL 10초 + 분산 | 84.1% | 0.291 | 39,802 (40.62%) |
 
-- 재현 코드: [backend-lab/044-two-level-cache](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/044-two-level-cache)
+- 재현 코드: [backend-proof/044-two-level-cache](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/044-two-level-cache)
 
 <sub>Python 3.13.12, macOS arm64, 시드 42 시뮬레이션. 응답 시간은 가정값(로컬 0.05 ms, 분산 1 ms, 저장소 10 ms)입니다.</sub>
 

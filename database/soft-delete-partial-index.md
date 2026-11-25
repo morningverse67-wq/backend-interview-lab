@@ -22,7 +22,7 @@ SELECT id FROM users WHERE email = ? AND deleted_at IS NULL;
 | 전체 UNIQUE(email) | 757 | 1,000 | 1,000 | 8.1 |
 | 부분 UNIQUE(email) WHERE deleted_at IS NULL | 74 | 0 | 1,000 | 6.0 |
 
-- 재현 코드: [backend-lab/035-soft-delete-partial-index](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/035-soft-delete-partial-index)
+- 재현 코드: [backend-proof/035-soft-delete-partial-index](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/035-soft-delete-partial-index)
 
 <sub>Python 3.13.12, SQLite 3.50.4, macOS arm64. 페이지 수와 오류 건수는 매번 같고 ms는 실행마다 조금씩 달라집니다(7.9~8.2 대 5.9~6.4).</sub>
 

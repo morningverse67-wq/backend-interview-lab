@@ -29,7 +29,7 @@
 
 응답만 받을 때는 같은 동시 수끼리 시간이 비슷했습니다(16: 379.7 vs 383.1ms, 100: 60.5 vs 65.3ms). 100개를 동시에 기다리는 데 쓴 클라이언트 CPU는 asyncio 13.4ms, 스레드 22.7ms였습니다. `async def` 안에서 블로킹 호출을 쓰면 서버가 본 동시 요청이 1개라 순차와 같았습니다. CPU 반복문을 붙이면 스레드 100개도 579.2ms로 클라이언트 CPU 합(592.5ms)만큼 걸렸고, 동시 16에서는 계산 중 다음 요청을 못 보내는 asyncio(920.0ms)가 스레드(618.6ms)보다 느렸습니다.
 
-- 재현 코드와 전체 결과: [backend-lab/024-sync-threadpool-asyncio](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/024-sync-threadpool-asyncio)
+- 재현 코드와 전체 결과: [backend-proof/024-sync-threadpool-asyncio](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/024-sync-threadpool-asyncio)
 - 실행: `python3 main.py` (표준 라이브러리만 사용, 약 2분 30초)
 - 검증: `regression_checks=26 PASS`. 호출 1번의 최소 시간, 동시 수별 하한(`ceil(n ÷ 동시 수) × 50ms`), 서버가 본 동시 요청 ≤ 제한, 순서가 섞여 끝나도 응답이 자기 요청과 맞는지, 잘못된 입력 거부를 assert로 검사했습니다.
 - 로컬 루프백, 고정 50ms 지연, 호출마다 새 연결입니다. 실제 네트워크 변동, keep-alive, 수천 개 동시 연결의 메모리, 프로세스 풀, free-threaded 빌드는 재지 않았습니다.

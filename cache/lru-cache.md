@@ -43,7 +43,7 @@ SQLite 파일 DB(WAL)에 상품 1만 개, 리뷰 30만 건을 두고, 상품 페
 
 - 측정한 배율은 모두 `1 / (1 - 히트율)`보다 조금 낮았습니다. 히트율이 0.9%인 LRU 100은 캐시를 확인하고 넣는 비용만 더해져 0.98배로 오히려 느렸습니다. 기본 키 조회 한 번처럼 DB 일이 더 작아도(인기 상품, LRU 1,000) 39.1ms → 16.9ms로 2.31배였습니다. 배율은 비슷하고, 줄어든 시간의 크기만 달랐습니다.
 - 요청의 2%가 가격을 바꾸게 하자(읽기 19,602건, 쓰기 398건) 캐시를 그대로 둔 쪽은 읽기 7,110건(36.3%)이 옛 가격을 받았고, DB에 쓴 뒤 키를 지운 쪽은 0건이었습니다. 히트율은 67.0% → 65.9%로 조금 내려갔습니다. 캐시 메모리는 페이지 1,000개에 618KB였습니다(`tracemalloc`).
-- 재현 코드: [backend-lab/016-lru-cache-latency](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/016-lru-cache-latency)
+- 재현 코드: [backend-proof/016-lru-cache-latency](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/016-lru-cache-latency)
 
 <sub>Python 3.13 / SQLite 3.50, 파일 DB(WAL). DB와 캐시가 같은 프로세스 안에 있어 네트워크 왕복이 없고, 그래서 미스 1번이 0.01ms 정도로 작습니다. Redis나 원격 DB처럼 왕복이 있는 구성은 재지 않았습니다. 무효화 실험은 한 스레드에서 잰 값입니다. 환경에 따라 수치는 달라질 수 있음.</sub>
 

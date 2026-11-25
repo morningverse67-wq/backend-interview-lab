@@ -1,5 +1,7 @@
 # 백엔드 면접 질문, 직접 돌려보고 답하기
 
+> 질문마다 근거 코드와 측정 숫자는 [backend-proof](https://github.com/morningverse67-wq/backend-proof)에 모여 있습니다.
+
 ![백엔드 면접 질문을 측정한 숫자로 답하는 backend-interview-lab](assets/cover.png)
 
 > **Backend interview questions answered with runnable experiments.**  
@@ -7,7 +9,7 @@
 
 "N+1이 뭔가요?", "인덱스는 왜 빠른가요?" 같은 백엔드 면접 단골 질문을
 **30초 답변 → 직접 측정한 근거 → 꼬리 질문 → 흔한 오답** 순서로 정리합니다.
-모든 수치는 [backend-lab](https://github.com/morningverse67-wq/backend-lab)의 코드로 직접 다시 돌려 볼 수 있습니다(값은 환경에 따라 다름).
+모든 수치는 [backend-proof](https://github.com/morningverse67-wq/backend-proof)의 코드로 직접 다시 돌려 볼 수 있습니다(값은 환경에 따라 다름).
 
 ## 이 저장소가 다른 점
 
@@ -100,7 +102,7 @@
 
 ## 관련 링크
 
-- 실험 코드: [backend-lab](https://github.com/morningverse67-wq/backend-lab)
+- 실험 코드: [backend-proof](https://github.com/morningverse67-wq/backend-proof)
 - 블로그: [velog.io/@morningverse](https://velog.io/@morningverse)
 
 질문 제안이나 틀린 내용은 [Issue](https://github.com/morningverse67-wq/backend-interview-lab/issues)로 알려주세요.  

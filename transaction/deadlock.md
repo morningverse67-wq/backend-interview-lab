@@ -41,7 +41,7 @@ SQLite 파일 DB(WAL)에 계좌 테이블을 두고 4스레드가 이체 50건�
 
 - 세 방식 모두 계좌별 최종 잔액은 같았습니다. 데드락은 데이터를 깨뜨리지 않고 재시도와 시간을 씁니다. 계좌 2개에서 순서를 고정하면 감지 방식보다 1.51배 빨랐고 p99는 46.42ms → 7.37ms였습니다. 감지 없이 타임아웃만 기다리면 묶인 이체 뒤로 대기가 줄줄이 타임아웃에 걸려 감지 방식의 12.8배가 걸렸습니다.
 - 계좌가 1,000개로 흩어지면 같은 두 행을 반대로 잡을 일이 거의 없어 세 방식 모두 데드락 0번, 시간도 1.0배였습니다. 순서 고정은 충돌이 몰리는 곳에서 효과가 납니다. 참고로 SQLite에서 두 읽기 트랜잭션이 둘 다 쓰려 하자 `busy_timeout` 5초를 기다리지 않고 0.005ms 만에 `database is locked`가 났고, `BEGIN IMMEDIATE`로 쓰기 잠금을 먼저 잡으면 실패 없이 기다렸습니다.
-- 재현 코드: [backend-lab/015-deadlock-lock-order](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/015-deadlock-lock-order)
+- 재현 코드: [backend-proof/015-deadlock-lock-order](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/015-deadlock-lock-order)
 
 <sub>Python 3.13 / SQLite 3.50, 파일 DB(WAL, synchronous=NORMAL). 행 잠금과 데드락 감지는 InnoDB나 PostgreSQL이 아니라 Python으로 흉내 낸 것이고, 롤백할 쪽은 기다리려던 트랜잭션으로 정했습니다. 타임아웃 방식은 데드락과 단순히 긴 대기를 구분하지 못해 데드락 칸을 "-"로 두었습니다. 실행 시간을 줄이려고 타임아웃을 30ms로 짧게 잡았습니다. 환경에 따라 수치는 달라질 수 있음.</sub>
 

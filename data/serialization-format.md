@@ -40,7 +40,7 @@ ROW.pack(order_id, user_id, status_code, amount, created_at)
 
 - 크기 차이 4.29배는 압축 뒤 1.24배였습니다. 압축이 반복되는 key를 대부분 지워 주기 때문입니다. pickle은 10만 건에서는 같은 key 문자열을 한 번만 저장해 작았지만, 한 건만 직렬화하면 88바이트로 JSON(84바이트)보다 컸습니다.
 - 필드 `coupon_id`를 추가한 데이터를 옛 코드로 읽으면 JSON은 정상, struct는 한 건이면 `struct.error`였지만 21건을 이어 붙인 데이터(525바이트, 21의 배수)는 에러 없이 25건으로 읽혔고 맞는 행은 1건이었습니다.
-- 재현 코드: [backend-lab/028-serialization-json-pickle-struct](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/028-serialization-json-pickle-struct)
+- 재현 코드: [backend-proof/028-serialization-json-pickle-struct](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/028-serialization-json-pickle-struct)
 
 <sub>Python 3.13.12, macOS arm64. MB는 1,000,000바이트. 시간은 5회 중 최소값. 환경에 따라 수치는 달라질 수 있음.</sub>
 

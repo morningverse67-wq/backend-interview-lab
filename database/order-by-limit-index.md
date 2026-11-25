@@ -22,7 +22,7 @@ SELECT id, created_at FROM orders WHERE user_id = ? ORDER BY created_at DESC LIM
 | INDEX(user_id) | 있음 | 8,295 | 192.8 |
 | INDEX(user_id, created_at) | 없음 | 133 | 4.5 |
 
-- 재현 코드: [backend-lab/036-order-by-limit-index](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/036-order-by-limit-index)
+- 재현 코드: [backend-proof/036-order-by-limit-index](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/036-order-by-limit-index)
 
 <sub>Python 3.13.12, SQLite 3.50.4, macOS arm64. 실행 계획과 단계 수는 매번 같고 ms는 실행마다 달라집니다(192.8~249.6 대 4.5~6.6).</sub>
 

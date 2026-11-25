@@ -46,7 +46,7 @@ SQLite 파일 DB(WAL)에서 연결 두 개로 재현했습니다. SQLite는 격�
 
 - dirty read: 다른 연결이 잔액을 0으로 바꾸고 커밋하지 않은 상태에서, `read_uncommitted = 1` 연결은 0을 읽었습니다. 그 값은 `ROLLBACK`되어 한 번도 커밋되지 않았습니다. 일반 연결은 1000을 읽었습니다.
 - 대가: 읽기 트랜잭션 하나를 열어 둔 채 다른 연결이 커밋 3,000번을 하자 WAL 파일이 3.93MB에서 11.79MB로 3.0배 커졌습니다. 스냅샷 위에서 `UPDATE`하면 기다리지 않고 0.007ms 만에 `database is locked` 에러가 나서 재시도가 필요했습니다.
-- 재현 코드: [backend-lab/013-isolation-anomalies](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/013-isolation-anomalies)
+- 재현 코드: [backend-proof/013-isolation-anomalies](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/013-isolation-anomalies)
 
 <sub>Python 3.13 / SQLite 3.50, 파일 DB(WAL, synchronous=NORMAL). 합계 보고서는 읽기 스레드 4개 x 250건, WAL 크기는 3회 실행의 중앙값. MySQL·PostgreSQL의 격리 수준별 동작은 직접 재지 않았고 공식 문서를 기준으로 적었습니다. 환경에 따라 수치는 달라질 수 있음.</sub>
 

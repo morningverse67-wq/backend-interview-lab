@@ -28,7 +28,7 @@ ack(event_id)
 | 반영 후 id 기록(따로 커밋) | 10,533 | 10,223 | 223 |
 | inbox + 반영 한 트랜잭션 | 10,533 | 10,000 | 0 |
 
-- 재현 코드: [backend-lab/032-idempotent-consumer](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/032-idempotent-consumer)
+- 재현 코드: [backend-proof/032-idempotent-consumer](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/032-idempotent-consumer)
 
 <sub>Python 3.13.12, macOS arm64. 시드 고정이라 매번 같은 수. 재전송 3%, 반영 뒤 죽기 2%는 실험용 값.</sub>
 

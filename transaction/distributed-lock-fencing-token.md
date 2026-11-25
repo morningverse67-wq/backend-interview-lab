@@ -18,7 +18,7 @@
 | 임대 락만 | 9,756 | 244 | 0 | 103.9 |
 | 임대 락 + fencing token | 10,000 | 0 | 216 | 106.3 |
 
-- 재현 코드: [backend-lab/039-lease-lock-fencing-token](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/039-lease-lock-fencing-token)
+- 재현 코드: [backend-proof/039-lease-lock-fencing-token](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/039-lease-lock-fencing-token)
 
 <sub>Python 3.13.12, macOS arm64, 이벤트 시뮬레이션(시드 39). 여러 번 돌려도 숫자가 같았습니다.</sub>
 

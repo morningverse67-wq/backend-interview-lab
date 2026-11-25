@@ -33,7 +33,7 @@ owner = owners[i % len(owners)]
 | 링, 가상 노드 1000 | 8,880 (8.88%) | 10,158 (10.16%) | 1.04 | 9,600 |
 
 - 가상 노드 100개 링에서 노드를 추가했을 때 옮겨진 9,266개는 전부 새 노드로 갔습니다. `hash % N`은 90,890개 중 9,090개만 새 노드로 가고, 81,800개는 기존 노드끼리 자리를 바꿨습니다.
-- 재현 코드: [backend-lab/030-consistent-hashing](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/030-consistent-hashing)
+- 재현 코드: [backend-proof/030-consistent-hashing](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/030-consistent-hashing)
 
 <sub>Python 3.13.12, macOS arm64. 키 배치·이동 수는 해시가 고정이라 같은 코드에서 매번 같음. 환경에 따라 시간은 달라질 수 있음.</sub>
 

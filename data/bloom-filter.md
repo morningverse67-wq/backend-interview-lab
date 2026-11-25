@@ -39,7 +39,7 @@ def positions(key):                       # 해시 k개 위치
 
 - 같은 키를 담은 Python `set`의 해시 테이블은 4.19MB(문자열 제외)로, 10 bits/key 필터의 약 34배였습니다.
 - 키 100개를 지우려고 그 키들의 비트를 0으로 되돌리자, 남은 99,900개 중 486개가 "없음"으로 나왔습니다.
-- 재현 코드: [backend-lab/029-bloom-filter](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/029-bloom-filter)
+- 재현 코드: [backend-proof/029-bloom-filter](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/029-bloom-filter)
 
 <sub>Python 3.13.12, macOS arm64. KB·MB는 1,000 / 1,000,000바이트. 오탐률·조회 수는 시드 고정. 환경에 따라 수치는 달라질 수 있음.</sub>
 

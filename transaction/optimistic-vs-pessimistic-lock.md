@@ -39,7 +39,7 @@ SQLite 파일 DB(WAL), 8스레드 x 200번 = `+1` 요청 1,600번. 요청마다 
 
 - 한 행에 몰리면 비관적 락은 재시도를 없애고 p99를 174.32ms에서 18.92ms로 낮췄지만, 전체 시간은 줄지 않았고 중앙값은 1.66ms에서 13.62ms로 늘었습니다.
 - 흩어진 경우는 낙관적 락도 재시도 8번으로 충분했습니다. 흩어진 경우의 p99가 40ms대인 것은 SQLite가 쓰기를 파일 단위로 하나씩만 받기 때문으로 보이며, 다른 DB에서는 다를 수 있습니다.
-- 재현 코드: [backend-lab/011-pessimistic-lock](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/011-pessimistic-lock)
+- 재현 코드: [backend-proof/011-pessimistic-lock](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/011-pessimistic-lock)
 
 <sub>Python 3.13 / SQLite 3.50, 파일 DB(WAL, synchronous=NORMAL), 3회 실행의 지표별 중앙값. 스레드 실행 순서에 따라 매번 조금씩 달라지고, 환경에 따라 수치는 달라질 수 있음.</sub>
 

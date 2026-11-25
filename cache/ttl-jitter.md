@@ -37,7 +37,7 @@ cache.set(key, value, ttl=ttl_with_jitter())
 
 - 고정 60초에서는 120초, 180초, … 540초까지 60초마다 봉우리가 다시 생겼습니다. 요청이 무작위라 조금씩 퍼지긴 했지만(첫 봉우리 618번, 540초대 277번) 9분이 지나도 사라지지 않았습니다.
 - 쿼리 1번이 2.20ms일 때 고정 60초의 가장 바쁜 1초는 DB 작업이 약 1,300ms로, 연결 하나로는 1초 안에 끝낼 수 없는 양이었습니다. 0~20% jitter에서는 약 211ms였습니다.
-- 재현 코드: [backend-lab/018-ttl-jitter](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/018-ttl-jitter)
+- 재현 코드: [backend-proof/018-ttl-jitter](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/018-ttl-jitter)
 
 <sub>Python 3.13 / SQLite 3.50, CPU 10개. 실제 캐시 서버와 DB에 부하를 건 게 아니라 가상 시계로 만료와 미스를 센 시뮬레이션입니다. 요청은 키마다 고르게 오고 미스 처리는 즉시 끝난다고 가정했습니다. DB 작업 시간은 쿼리 1개 시간(SQLite 상품 20만 건 집계, 200번 중앙값)에 조회 수를 곱한 어림값입니다. 환경에 따라 수치는 달라질 수 있음.</sub>
 

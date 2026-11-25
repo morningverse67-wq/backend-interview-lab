@@ -29,7 +29,7 @@ else:
 | 재시도 없이 바로 DLQ | 10,000 | 9,357 | 0 | 643 | 514 |
 | 최대 3번 시도 뒤 DLQ | 10,772 | 9,871 | 0 | 129 | 0 |
 
-- 재현 코드: [backend-lab/033-dead-letter-queue](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/033-dead-letter-queue)
+- 재현 코드: [backend-proof/033-dead-letter-queue](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/033-dead-letter-queue)
 
 <sub>Python 3.13.12, macOS arm64. 시드 고정이라 매번 같은 수. 오류 비율과 시도 한도는 실험용 값.</sub>
 

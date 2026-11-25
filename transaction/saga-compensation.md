@@ -19,7 +19,7 @@
 | 재시도 (멱등 아님) | 0 | 0 | 48 | 13 | 61 |
 | 재시도 + 멱등 키 | 0 | 0 | 0 | 0 | 0 |
 
-- 재현 코드: [backend-lab/040-saga-compensation](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/040-saga-compensation)
+- 재현 코드: [backend-proof/040-saga-compensation](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/040-saga-compensation)
 
 <sub>Python 3.13.12, macOS arm64, 시드 40 시뮬레이션. 여러 번 돌려도 숫자가 같았습니다.</sub>
 

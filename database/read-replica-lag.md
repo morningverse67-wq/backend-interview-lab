@@ -19,7 +19,7 @@
 | 반영 위치 확인 후 replica | 0 | 3.7% |
 | 항상 primary | 0 | 100.0% |
 
-- 재현 코드: [backend-lab/041-read-replica-lag](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/041-read-replica-lag)
+- 재현 코드: [backend-proof/041-read-replica-lag](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/041-read-replica-lag)
 
 <sub>Python 3.13.12, macOS arm64, 시드 41 시뮬레이션. 여러 번 돌려도 숫자가 같았습니다.</sub>
 

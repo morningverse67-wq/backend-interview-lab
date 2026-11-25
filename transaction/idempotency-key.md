@@ -46,7 +46,7 @@ SQLite 파일 DB(WAL)에 결제 테이블과 키 테이블을 두고, 결제 한
 
 - 먼저 조회하는 방식은 결제 행도 200건, 같은 주문의 응답도 모두 같아서 DB만 보면 문제가 없어 보였습니다. 문제는 PG 쪽에만 남았습니다(599번).
 - 키 먼저 저장 방식의 대가: 같은 키 요청이 409를 받고 기다리느라 전체 시간이 늘었고, 중복 없는 요청 1건도 키 쓰기 2번 때문에 0.043ms → 0.191ms가 됐습니다. PG 호출 2ms를 넣으면 3.083ms → 3.764ms(1.22배)였습니다. 그 밖에 같은 키 + 다른 금액은 422로 거절됐고, PG 실패 뒤 키를 `processing`으로 남기자 같은 키 재시도 5번이 모두 409였습니다(키를 지우면 바로 결제 성공).
-- 재현 코드: [backend-lab/014-idempotency-key](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/014-idempotency-key)
+- 재현 코드: [backend-proof/014-idempotency-key](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/014-idempotency-key)
 
 <sub>Python 3.13 / SQLite 3.50, 파일 DB(WAL, synchronous=NORMAL). 가짜 PG와 한 프로세스 안의 스레드로 만든 예제이고, 실제 PG나 여러 서버 환경에서는 재지 않았습니다. 키 먼저 저장 방식의 전체 시간은 실행마다 887.8~1,093.5ms로 흔들렸습니다. 환경에 따라 수치는 달라질 수 있음.</sub>
 

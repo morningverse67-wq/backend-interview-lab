@@ -45,7 +45,7 @@ SELECT created_at, amount FROM orders WHERE user_id = ?;
 
 - 사용자당 100건 남짓을 읽는 조회는 2.3배, 한 번에 약 2.5만 건을 읽는 한 달 합계는 16.6배였습니다. 테이블 읽기가 읽는 행 수만큼 생략되기 때문에 읽는 행이 많을수록 차이가 커졌습니다.
 - `memo`를 같이 조회하면 실행 계획에서 `COVERING`이 빠지고(`USING INDEX idx_user_cov`) 1.0배였습니다. 측정은 메모리 DB 기준이라 디스크 I/O는 포함되지 않았습니다.
-- 재현 코드: [backend-lab/007-covering-index](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/007-covering-index)
+- 재현 코드: [backend-proof/007-covering-index](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/007-covering-index)
 
 <sub>Python 3.13 / SQLite 3.50, 3회 중 최소값. 환경에 따라 수치는 달라질 수 있음.</sub>
 

@@ -47,7 +47,7 @@ COMMIT;
 
 - 차이의 대부분은 COMMIT 횟수에서 나왔습니다. 트랜잭션을 묶은 뒤 `executemany`와 여러 행 `VALUES`의 추가 이득은 8.08ms → 6.27ms 정도로 작았는데, SQLite는 같은 프로세스 안의 DB라 네트워크 왕복이 없기 때문입니다. 서버형 DB에서의 왕복 비용은 이 실험에서 재지 않았습니다.
 - 1,000건 단위 커밋(10.16ms)은 전부 하나로 묶은 것(6.63ms)과 차이가 작았고, 실패해도 앞의 7,000건은 남았습니다.
-- 재현 코드: [backend-lab/008-bulk-insert](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/008-bulk-insert)
+- 재현 코드: [backend-proof/008-bulk-insert](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/008-bulk-insert)
 
 <sub>Python 3.13 / SQLite 3.50, macOS 로컬 SSD, 3회 중 최소값. COMMIT 비용은 디스크와 OS 설정에 따라 크게 달라지므로 수치는 환경에 따라 달라질 수 있음.</sub>
 

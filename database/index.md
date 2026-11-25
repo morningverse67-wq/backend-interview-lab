@@ -35,7 +35,7 @@ status 조회    before: SCAN orders
 ```
 
 - 두 쿼리 모두 인덱스를 탔지만, 하나는 887배 빨라지고 하나는 오히려 조금 느려졌습니다.
-- 재현 코드: [backend-lab/002-index-scan](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/002-index-scan)
+- 재현 코드: [backend-proof/002-index-scan](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/002-index-scan)
 
 <sub>Python 3.13 / SQLite 3.50, 3회 중 최소값. 환경에 따라 수치는 달라질 수 있음.</sub>
 

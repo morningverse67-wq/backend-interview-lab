@@ -19,7 +19,7 @@
 | 긴 읽기를 10번째 묶음 뒤에 닫음 | 9/20 | 7.94 | 0.00 |
 | 긴 읽기가 끝까지 열려 있음 | 20/20 | 17.65 | 17.65 |
 
-- 재현 코드: [backend-lab/037-long-transaction-wal-growth](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/037-long-transaction-wal-growth)
+- 재현 코드: [backend-proof/037-long-transaction-wal-growth](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/037-long-transaction-wal-growth)
 
 <sub>Python 3.13.12, SQLite 3.50.4, macOS arm64. 같은 시드라 여러 번 돌려도 숫자가 같았습니다.</sub>
 

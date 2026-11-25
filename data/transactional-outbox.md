@@ -30,7 +30,7 @@ for event_id, order_id in db.execute("SELECT id, order_id FROM outbox WHERE sent
 | outbox + 릴레이 | 9,905 | 10,121 | 0 | 0 | 216 |
 
 - 소비자가 이벤트 id로 거르자 10,121번 받은 이벤트 중 9,905번만 처리해 저장된 주문 수와 같아졌습니다.
-- 재현 코드: [backend-lab/031-transactional-outbox](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/031-transactional-outbox)
+- 재현 코드: [backend-proof/031-transactional-outbox](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/031-transactional-outbox)
 
 <sub>Python 3.13.12, macOS arm64. 시드 고정이라 매번 같은 수. 장애 확률(커밋 실패 1%, 단계 사이 죽기 2%)은 실험용 값.</sub>
 

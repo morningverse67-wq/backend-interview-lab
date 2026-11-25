@@ -26,7 +26,7 @@
 
 장애 1000~6000ms 한 번만 보면, OPEN 2000ms는 2,090ms에 OPEN → 4,090ms HALF_OPEN → 5,090ms 시험 실패로 OPEN → 7,090ms HALF_OPEN → 7,130ms CLOSED 순서로 움직였습니다. breaker 없이 타임아웃 500번이던 것이 112번으로 줄었지만, 서비스가 6,000ms에 살아난 뒤 7,130ms까지 110개를 거절했습니다.
 
-- 재현 코드와 전체 결과: [backend-lab/022-circuit-breaker](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/022-circuit-breaker)
+- 재현 코드와 전체 결과: [backend-proof/022-circuit-breaker](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/022-circuit-breaker)
 - 실행: `python3 main.py` (표준 라이브러리만 사용)
 - 검증: `regression_checks=100 PASS`. 손으로 계산한 상태 전이와 호출 수, 10%·50% 간헐 실패에서 열리는지, 요청 수 보존, 같은 설정 재현성을 assert로 검사했습니다.
 - 느린 응답 비율(slow call), 시간 기반 window, 여러 인스턴스, fallback 응답, 재시도와의 조합은 넣지 않았습니다.

@@ -29,7 +29,7 @@
 
 쿼리만 할 때 풀 4개는 풀 대기 p99 19.61ms + DB 안 18.39ms였고, 풀 64개는 풀 대기 0ms + DB 안 40.86ms였습니다. p50은 5.46 → 4.08ms로 줄었지만 p99는 25.80 → 40.86ms로 늘었습니다. 커넥션을 20ms 더 쥐는 경우 1회 점유가 평균 26.92ms라 초당 800 × 26.92ms = 21.5개가 필요했고, 실제 평균 사용 중 커넥션도 21.54개였습니다. 그래서 16개에서 805개가 포기했고, 그동안 DB 동시 쿼리는 최대 10~13개로 한가했습니다.
 
-- 재현 코드와 전체 결과: [backend-lab/023-connection-pool-size](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/023-connection-pool-size)
+- 재현 코드와 전체 결과: [backend-proof/023-connection-pool-size](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/023-connection-pool-size)
 - 실행: `python3 main.py` (표준 라이브러리만 사용)
 - 검증: `regression_checks=39 PASS`. 손으로 계산한 대기·공유·경합·점유 시간, 풀 크기를 넘는 동시 쿼리가 없는지, 요청 수 보존, 같은 seed 재현성을 assert로 검사했습니다.
 - 경합 2%는 실측이 아닌 가정입니다. 디스크·네트워크 I/O 대기, 여러 인스턴스, 커넥션 생성 비용은 넣지 않았습니다.

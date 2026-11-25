@@ -45,7 +45,7 @@ SQLite 파일 DB(WAL), 8스레드가 같은 상품을 1개씩 주문. 주문마�
 
 - 원자적 UPDATE, 낙관적 락, 행 락은 매번 정확히 재고만큼만 팔았고, 그중 원자적 UPDATE가 재시도 없이 가장 빨랐습니다. 품절이 빨리 나는 경우(재고 100 · 주문 400)에는 178.4ms vs 180.2ms로 시간 차이가 없었습니다. 행 락도 품절 뒤에는 바로 실패하기 때문입니다.
 - 재고 800 · 주문 800에서 틀린 방법들도 비슷한 시간이 걸린 것은 SQLite가 쓰기를 파일 단위로 하나씩만 받기 때문으로 보이며, 다른 DB에서는 다를 수 있습니다.
-- 재현 코드: [backend-lab/012-stock-decrement-concurrency](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/012-stock-decrement-concurrency)
+- 재현 코드: [backend-proof/012-stock-decrement-concurrency](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/012-stock-decrement-concurrency)
 
 <sub>Python 3.13 / SQLite 3.50, 파일 DB(WAL, synchronous=NORMAL), 3회 실행의 지표별 중앙값. 스레드 실행 순서에 따라 매번 조금씩 달라지고, 환경에 따라 수치는 달라질 수 있음.</sub>
 

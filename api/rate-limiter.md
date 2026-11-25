@@ -27,7 +27,7 @@ Fixed window는 고정 구간마다 카운트를 초기화해서 단순하지만
 
 Token bucket은 800ms 동안 4토큰이 생겨 0ms의 5개에 더해 4개를 허용했습니다. Exact log는 0ms의 기록이 아직 남아 두 번째 묶음을 전부 거절했습니다. 유휴 후에도 token bucket에는 용량 5개만 쌓였습니다.
 
-- 재현 코드와 전체 결과: [backend-lab/020-rate-limiter](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/020-rate-limiter)
+- 재현 코드와 전체 결과: [backend-proof/020-rate-limiter](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/020-rate-limiter)
 - 실행: `python3 main.py` (표준 라이브러리만 사용)
 - 검증: `regression_checks=26 PASS`, `workload_expectations=12 PASS`. 창 경계, 정확한 로그 만료, 거절 뒤 만료, 부분 토큰 누적, 유휴 용량 상한 등을 assert로 검사했습니다.
 - 이것은 결정적 순차 시뮬레이션입니다. 동시성·분산 처리·네트워크·실제 latency·처리량은 측정하지 않았습니다. 알고리즘 공간 복잡도도 실측 메모리 값이 아닙니다.

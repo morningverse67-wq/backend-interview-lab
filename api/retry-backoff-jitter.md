@@ -26,7 +26,7 @@
 
 지수 백오프만 쓴 100개는 0, 100, 300, 700, 1500ms에 함께 보냈고, 1500ms에 10개만 성공한 뒤 나머지 90개가 다시 3100ms에 같이 몰렸습니다. 처리 용량이 100ms당 10개인데 복구 직후 구간마다 100번이 몰린 셈입니다. Full jitter는 같은 백오프에서 복구 후 거절을 450번에서 9번으로 줄였습니다.
 
-- 재현 코드와 전체 결과: [backend-lab/021-retry-backoff-jitter](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/021-retry-backoff-jitter)
+- 재현 코드와 전체 결과: [backend-proof/021-retry-backoff-jitter](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/021-retry-backoff-jitter)
 - 실행: `python3 main.py` (표준 라이브러리만 사용)
 - 검증: `regression_checks=55 PASS`. 대기 값과 cap, jitter 범위, fixed·exponential의 손 계산 결과, 용량 초과 성공이 없는지, 같은 seed 재현성을 assert로 검사했습니다.
 - 서버가 과부하에서 느려지거나 다시 죽는 효과, 네트워크·타임아웃·실제 latency는 넣지 않았습니다.

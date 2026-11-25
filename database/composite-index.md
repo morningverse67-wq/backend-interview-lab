@@ -34,7 +34,7 @@ SELECT id, amount FROM orders WHERE user_id = ? AND created_at >= ?;
 
 - 순서가 맞지 않는 인덱스는 "인덱스를 탔는데도" 505배 느리거나(범위 컬럼이 앞), 아예 SCAN이 되어 인덱스가 없는 것과 같았습니다(첫 컬럼 조건 없음).
 - 날짜만으로 조회하는 쿼리에서는 반대로 `(created_at, user_id)`가 10.6배 빨랐습니다. 어떤 쿼리가 중요한지에 따라 승자가 바뀝니다.
-- 재현 코드: [backend-lab/004-composite-index-order](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/004-composite-index-order)
+- 재현 코드: [backend-proof/004-composite-index-order](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/004-composite-index-order)
 
 <sub>Python 3.13 / SQLite 3.50, 3회 중 최소값. 환경에 따라 수치는 달라질 수 있음.</sub>
 

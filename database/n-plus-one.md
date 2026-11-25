@@ -30,7 +30,7 @@ for post in posts:
 | IN 일괄 조회 | 2 | 0.63 | 2.08 |
 
 - 같은 프로세스 안의 메모리 DB에서는 차이가 거의 없습니다. **비용의 대부분은 쿼리 실행이 아니라 왕복**입니다.
-- 재현 코드: [backend-lab/001-n-plus-one](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/001-n-plus-one)
+- 재현 코드: [backend-proof/001-n-plus-one](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/001-n-plus-one)
 
 <sub>Python 3.13 / SQLite 3.50, 3회 중 최소값. 환경에 따라 수치는 달라질 수 있음.</sub>
 

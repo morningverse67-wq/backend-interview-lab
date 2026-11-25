@@ -22,7 +22,7 @@ ON CONFLICT (k) DO UPDATE SET n = n + 1;
 | 조회 후 INSERT/UPDATE | 1,000 | 1,000 | 98 |
 | INSERT ... ON CONFLICT | 0 | 0 | 45 |
 
-- 재현 코드: [backend-lab/034-upsert-on-conflict](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/034-upsert-on-conflict)
+- 재현 코드: [backend-proof/034-upsert-on-conflict](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/034-upsert-on-conflict)
 
 <sub>Python 3.13.12, SQLite 3.50.4, macOS arm64. 경합은 순서를 고정해 재현했고 ms는 실행마다 달라집니다(같은 코드 여러 번: 98~148 대 45~62).</sub>
 

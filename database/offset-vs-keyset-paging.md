@@ -48,7 +48,7 @@ LIMIT 20;
 
 - OFFSET 시간은 건너뛰는 행 수에 거의 비례해서 늘었고, 커서는 1페이지든 10,000페이지든 0.7ms대였습니다. 1페이지에서는 차이가 없었으니, 앞쪽 몇 페이지만 보는 화면이면 OFFSET도 충분합니다.
 - 반대로 특정 페이지로 바로 가야 하면 커서는 앞 페이지를 전부 넘겨야 해서 OFFSET이 52.3배 빨랐습니다.
-- 재현 코드: [backend-lab/005-offset-vs-keyset-paging](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/005-offset-vs-keyset-paging)
+- 재현 코드: [backend-proof/005-offset-vs-keyset-paging](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/005-offset-vs-keyset-paging)
 
 <sub>Python 3.13 / SQLite 3.50, 3회 중 최소값. 환경에 따라 수치는 달라질 수 있음.</sub>
 

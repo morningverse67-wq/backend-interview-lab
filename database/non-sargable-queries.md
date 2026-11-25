@@ -45,7 +45,7 @@ WHERE order_no = '12345678'         -- 파라미터 타입을 컬럼 타입에 �
 
 - 세 경우 모두 "그대로" 쿼리의 실행 계획은 `SCAN orders`, 고친 쿼리는 `SEARCH ... USING INDEX`였습니다. 같은 달을 범위 조건으로 조회하면 8.87ms로 기존 `created_at` 인덱스를 그대로 썼습니다.
 - SQLite는 문자열 컬럼에 숫자 파라미터를 넘겨도 상수 쪽을 바꿔서 인덱스를 탔습니다(100회 0.089ms). 그래서 형변환 케이스는 MySQL이 하는 컬럼 쪽 변환을 `CAST`로 직접 써서 재현한 값입니다.
-- 재현 코드: [backend-lab/006-non-sargable-queries](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/006-non-sargable-queries)
+- 재현 코드: [backend-proof/006-non-sargable-queries](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/006-non-sargable-queries)
 
 <sub>Python 3.13 / SQLite 3.50, 3회 중 최소값. 환경에 따라 수치는 달라질 수 있음.</sub>
 

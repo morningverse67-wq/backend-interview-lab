@@ -19,7 +19,7 @@ DELETE는 행을 지우고 빈 페이지를 DB 안의 재사용 목록(freelist)
 | DELETE 뒤 VACUUM | 27.70 | 27.70 (6,373) | 2.77 (0) |
 | auto_vacuum=INCREMENTAL + incremental_vacuum | 27.74 | 27.74 (6,373) | 2.81 (0) |
 
-- 재현 코드: [backend-lab/038-bulk-delete-freelist-vacuum](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/038-bulk-delete-freelist-vacuum)
+- 재현 코드: [backend-proof/038-bulk-delete-freelist-vacuum](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/038-bulk-delete-freelist-vacuum)
 
 <sub>Python 3.13.12, SQLite 3.50.4, macOS arm64. 데이터가 고정이라 여러 번 돌려도 숫자가 같았습니다.</sub>
 

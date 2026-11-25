@@ -29,7 +29,7 @@
 
 타임아웃이 없으면 워커 8개가 2초씩 묶여, 외부 API를 부르지 않는 `/health`도 최대 6,437.2ms(중앙값 3,227.7ms)를 기다렸습니다. 연결 타임아웃만 건 경우는 상대가 연결을 바로 받아 줘서 결과가 같았습니다. 읽기 타임아웃 200ms를 걸면 주문은 504로 실패했지만 바쁜 워커가 최대 5개에 그쳐 `/health`는 0.3ms였습니다. 1바이트씩 흘리는 응답에는 읽기 타임아웃이 한 번도 걸리지 않았고, 전체 기한을 둬야 201.6ms에 끊겼습니다. 읽기 타임아웃 행에서 앱은 202ms에 손을 뗐지만 외부 API 쪽 동시 요청은 최대 40개까지 쌓였습니다(타임아웃 없음은 8개).
 
-- 재현 코드와 전체 결과: [backend-lab/025-external-call-timeout](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/025-external-call-timeout)
+- 재현 코드와 전체 결과: [backend-proof/025-external-call-timeout](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/025-external-call-timeout)
 - 실행: `python3 main.py` (표준 라이브러리만 사용, 약 2분 10초)
 - 검증: `regression_checks=28 PASS`. 호출 방식별로 stall·drip에서 끊기는지와 끊기는 시간(200ms 이상 500ms 미만), 워커 8개가 묶였을 때 `/health`가 1,800ms 이상 기다리는지, 잘못된 입력 거부를 assert로 검사했습니다.
 - 로컬 루프백, 워커 8개, 초당 20건, 호출마다 2초 지연이라는 한 가지 조건입니다. 타임아웃 값은 200ms 하나만 쟀고, bulkhead, 비동기 서버, 실제 네트워크의 SYN 무응답, 커넥션 재사용은 재지 않았습니다.

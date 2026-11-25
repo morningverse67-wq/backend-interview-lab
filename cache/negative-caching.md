@@ -19,7 +19,7 @@
 | 부정 캐시 TTL 30초 | 9,784 | 67.5% | 61 |
 | TTL 30초 + 만들 때 지움 | 9,845 | 67.3% | 0 |
 
-- 재현 코드: [backend-lab/042-negative-caching](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/042-negative-caching)
+- 재현 코드: [backend-proof/042-negative-caching](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/042-negative-caching)
 
 <sub>Python 3.13.12, macOS arm64, 시드 42 시뮬레이션. 여러 번 돌려도 숫자가 같았습니다.</sub>
 

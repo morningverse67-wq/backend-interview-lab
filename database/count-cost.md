@@ -50,7 +50,7 @@ SELECT EXISTS (SELECT 1 FROM orders WHERE user_id = ? AND status = 'CANCELLED');
 
 - 인덱스는 21.16ms → 6.12ms(3.5배)로 줄였지만 59.9만 개 항목을 세는 일은 남아 있습니다. 카운터는 읽기를 거의 없앤 대신 그 비용을 모든 쓰기에 나눠 냅니다.
 - `EXISTS`가 빠른 건 맞는 행을 일찍 만났을 때뿐입니다. 맞는 행이 없으면 끝까지 읽어서 15.45ms vs 15.42ms로 같았습니다.
-- 재현 코드: [backend-lab/009-count-cost](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/009-count-cost)
+- 재현 코드: [backend-proof/009-count-cost](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/009-count-cost)
 
 <sub>Python 3.13 / SQLite 3.50, in-memory DB, 10회 평균의 3회 중 최소값. 0.0005ms는 쿼리 한 번을 호출하는 비용과 비슷한 수준이라 배율로 비교하지 않았습니다. 환경에 따라 수치는 달라질 수 있음.</sub>
 

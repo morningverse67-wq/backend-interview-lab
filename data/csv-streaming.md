@@ -40,7 +40,7 @@ for row in csv.reader(f):           # reader는 이터레이터: 지금 행 하�
 
 - 한 번에 읽는 방식은 행 수에 비례해 늘었고, 스트리밍은 두 크기 모두 0.1MB였습니다. 큰 리스트를 만들지 않으니 시간도 201.2ms → 152.8ms로 줄었습니다.
 - 다섯 방법 모두 같은 건수·합계·중앙값을 냈고(중앙값은 SQLite로 한 번 더 확인), 시간은 3회 중 최소값입니다.
-- 재현 코드: [backend-lab/026-csv-load-vs-streaming](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/026-csv-load-vs-streaming)
+- 재현 코드: [backend-proof/026-csv-load-vs-streaming](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/026-csv-load-vs-streaming)
 
 <sub>Python 3.13.12 / SQLite 3.50.4, macOS arm64. 시간은 3회 중 최소값, RSS는 3회 중앙값. 환경에 따라 수치는 달라질 수 있음.</sub>
 

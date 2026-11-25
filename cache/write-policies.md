@@ -24,7 +24,7 @@ Cache-aside는 읽기 미스 때 애플리케이션이 DB에서 캐시를 채우
 
 장애 실험에서는 80번째 쓰기까지 반영한 뒤 15번 더 응답했습니다. DB UPDATE는 40번, 대기열에 남은 키는 10개였습니다. 미반영 응답 15번과 최신 값이 없는 키 10개는 서로 다른 지표입니다. DB가 살아 있고 캐시 메모리만 사라지는 상황을 모사했습니다. 실제 프로세스 종료·디스크 복구·지연 시간·처리량을 측정한 것은 아닙니다.
 
-- 재현 코드와 전체 결과: [backend-lab/019-cache-write-policies](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/019-cache-write-policies)
+- 재현 코드와 전체 결과: [backend-proof/019-cache-write-policies](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/019-cache-write-policies)
 - 실행: `python3 main.py` (Python 3 표준 라이브러리만 사용)
 
 ## 꼬리 질문

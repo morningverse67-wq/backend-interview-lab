@@ -32,7 +32,7 @@
 
 두 방식 모두 159,975개 결과 행과 checksum `213,040,298,565`를 냈습니다. 이 Python 구현에서는 해시 조인이 빨랐고, 병합 조인은 이미 정렬된 입력에서도 이겼다고 할 수 없었습니다. `tracemalloc`에는 공통 결과 리스트가 포함되므로 이 수치는 전체 RSS나 DB 서버 메모리가 아닙니다. 운영 DB의 알고리즘 선택을 설명하는 예시가 아니라, 정렬 상태와 자료구조에 따른 비용을 비교한 작은 실험입니다.
 
-재현 코드: [backend-lab/027-merge-join-vs-hash-join](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/027-merge-join-vs-hash-join)
+재현 코드: [backend-proof/027-merge-join-vs-hash-join](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/027-merge-join-vs-hash-join)
 
 <sub>Python 3.13.12 / macOS arm64. 시간과 tracemalloc 최대치: 각 조건·방법별 fresh process 5회 중앙값. 환경에 따라 수치는 달라질 수 있음.</sub>
 

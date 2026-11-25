@@ -54,7 +54,7 @@ SQLite 파일 DB(WAL)에 리뷰 30만 건을 두고, 카테고리별 평점 랭�
 
 - 같은 키에 32개가 몰리면 쿼리 32개가 CPU를 나눠 써서, 단독 19.4ms인 쿼리가 p99 161.63ms까지 느려졌습니다. single-flight는 쿼리를 1번으로 줄여 끝나는 시간이 8.5배 빨라졌고, 기다린 요청도 쿼리 1번 시간(p99 18.73ms)만큼만 기다렸습니다.
 - 요청이 키 32개로 흩어지면 single-flight는 합칠 것이 없어 쿼리가 그대로 320번이었고 0.91배(103.5ms → 114.3ms)로 이득이 없었습니다. SWR은 가장 빨랐지만 만료 순간의 응답은 모두 만료된 값이었습니다.
-- 재현 코드: [backend-lab/017-cache-stampede-single-flight](https://github.com/morningverse67-wq/backend-lab/tree/main/labs/017-cache-stampede-single-flight)
+- 재현 코드: [backend-proof/017-cache-stampede-single-flight](https://github.com/morningverse67-wq/backend-proof/tree/main/labs/017-cache-stampede-single-flight)
 
 <sub>Python 3.13 / SQLite 3.50, 파일 DB(WAL), CPU 10개. 한 프로세스 안의 스레드와 메모리 캐시로 잰 값이고, 서버 여러 대나 Redis 같은 외부 캐시는 재지 않았습니다. SWR의 끝나는 시간에는 백그라운드 갱신 시간이 들어 있지 않고, 실험 중 데이터를 바꾸지 않아 만료된 값도 내용은 같았습니다. 보호 없음의 쿼리 수는 늦게 출발한 요청이 먼저 끝난 쿼리가 채운 캐시를 읽으면 동시 요청 수보다 적을 수 있습니다(다시 돌렸을 때 320번 중 317번). 환경에 따라 수치는 달라질 수 있음.</sub>
 
